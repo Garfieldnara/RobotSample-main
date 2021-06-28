@@ -32,12 +32,17 @@ import com.ainirobot.coreservice.client.listener.CommandListener;
 import com.ainirobot.robotos.LogTools;
 import com.ainirobot.robotos.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class NavigationFragment extends BaseFragment {
 
     private Button mTurn_direction;
     private Button mStop_navigation;
     private Button mStart_navigation;
     private EditText mNavigation_point;
+    private Button mGetListPosition;
 
     @Override
     public View onCreateView(Context context) {
@@ -51,6 +56,7 @@ public class NavigationFragment extends BaseFragment {
         mStop_navigation = (Button) root.findViewById(R.id.stop_navigation);
         mStart_navigation = (Button) root.findViewById(R.id.start_navigation);
         mNavigation_point = (EditText)root.findViewById(R.id.et_navigation_point);
+        mGetListPosition = (Button) root.findViewById(R.id.get_listposition);
 
         mStart_navigation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +79,36 @@ public class NavigationFragment extends BaseFragment {
             }
         });
 
+        mGetListPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public  void onClick(View v) {
+                listPosition();
+            }
+        } );
+
+    }
+
+    private void listPosition(){
+        RobotApi.getInstance().getPlaceList(0, new CommandListener() {
+            @Override
+            public void onResult(int result, String message) {
+                try {
+                    JSONArray jsonArray = new JSONArray(message);
+
+                    int length = jsonArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject json = jsonArray.getJSONObject(i);
+                        json.getDouble("x"); //x coordinate
+                        json.getDouble("y"); //y coordinate
+                        json.getDouble("theta"); //z coordinate
+                        json.getString("name"); //position name
+                        LogTools.info("position " + i + " : " + json);
+                    }
+                } catch (JSONException | NullPointerException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private String getNavigationPoint(){
