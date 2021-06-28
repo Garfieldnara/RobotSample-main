@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">RobotSample</string>
+    <string name="sdk_info">SDK info</string>
+    <string name="basic_scene">Basic scene</string>
+    <string name="navigation">การนำทาง</string>
+    <string name="basic_sport">Basic Sport</string>
+    <string name="visual_ability">Visual Ability</string>
+    <string name="speech_ability">Speech Ability</string>
+
+    <string name="start_lead_text">เริ่มนำทาง</string>
+    <string name="stop_lead_text">หยุดนำทาง</string>
+    <string name="lead_text">นำทาง</string>
+    <string name="map_location_text">แผนที่แสดงที่ตั้ง</string>
+    <string name="charge_text">การชาร์จ</string>
+    <string name="lead_hint_point">Lead Hint Point</string>
+    <string name="lead_tips_text">Lead Tip</string>
+    <string name="back_text">Back</string>
+    <string name="clear_screen">ล้างหน้าจอ</string>
+    <string name="recovery_screen">Recovery Screen</string>
+    <string name="output_result">Output Result:</string>
+    <string name="speech_hint_text">Speech Hint</string>
+
+    <string name="speech_play">Play Speech</string>
+    <string name="speech_stop">Stop speech</string>
+    <string name="speech_query">Query Speech</string>
+    <string name="sport_forward">Sport Forward</string>
+    <string name="sport_back">Back</string>
+    <string name="sport_turn_left">Sport Turn Left</string>
+    <string name="sport_turn_right">SPort Turn Right</string>
+    <string name="sport_stop">Sport Stop</string>
+
+    <string name="vision_register">Vision Registered</string>
+    <string name="vision_un_register">Vision Unregistered</string>
+
+    <string name="location_reception">Reception Location</string>
+    <string name="location_init_point">Init Point Location</string>
+    <string name="location_is_estimate">Estimate Location</string>
+    <string name="location_set_reception">Reception Location Set</string>
+    <string name="location_get_point">Get Location</string>
+    <string name="location_remove_point">ย้ายที่ตั้ง</string>
+
+    <string name="navigation_stop"> หยุดการนำทาง</string>
+    <string name="navigation_resume_direction">นำทางต่อ</string>
+
+    <string name="charge_auto_start">เริ่มการชาร์จ</string>
+    <string name="charge_auto_stop">หยุดการชาร์จ</string>
+    <string name="charge_stop_leave">ชาร์จเสร็จแล้ว</string>
+
+
+
+</resources>
