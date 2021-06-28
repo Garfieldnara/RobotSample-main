@@ -41,11 +41,21 @@
 
     <string name="navigation_stop"> หยุดการนำทาง</string>
     <string name="navigation_resume_direction">นำทางต่อ</string>
+    <string name="navigation_list_position">รายการตำแหน่ง</string>
 
     <string name="charge_auto_start">เริ่มการชาร์จ</string>
     <string name="charge_auto_stop">หยุดการชาร์จ</string>
     <string name="charge_stop_leave">ชาร์จเสร็จแล้ว</string>
 
+    <string name="active_person">ตรวจจับผู้คน</string>
+    <string name="Person_change_monitoring">การตรวจสอบการเปลี่ยนแปลงบุคคล</string>
+    <string name="Get_all_personnel_information">รับข้อมูลบุคลากรทั้งหมด</string>
+    <string name="Get_list_people_detected_body">รับรายชื่อผู้ที่ตรวจพบร่างกาย</string>
+    <string name="Get_list_people_detected_faces">รับรายชื่อบุคคลที่ตรวจพบใบหน้า</string>
+    <string name="Get_list_people_detected_complete_faces">รับรายชื่อผู้ที่ตรวจพบใบหน้าที่สมบูรณ์</string>
+    <string name="Get_person_following_focus">รับคนที่กำลังติดตามโฟกัส</string>
+    <string name="start_follow_focus">เริ่มติดตามใบหน้า</string>
+    <string name="stop_follow_focus">หยุดติดตามใบหน้า</string>
 
 
 </resources>
