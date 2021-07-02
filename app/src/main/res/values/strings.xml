@@ -56,6 +56,9 @@
     <string name="Get_person_following_focus">รับคนที่กำลังติดตามโฟกัส</string>
     <string name="start_follow_focus">เริ่มติดตามใบหน้า</string>
     <string name="stop_follow_focus">หยุดติดตามใบหน้า</string>
+    <string name="home">Home</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
 </resources>

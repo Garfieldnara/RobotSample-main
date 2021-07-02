@@ -230,9 +230,10 @@ public class ActivePersonFragment extends BaseFragment {
             for (int i = 0; i < personList.size(); i++) {
                 if (personList.get(i).getId() >= 0) {
                     List<Person> completeFaceList = PersonApi.getInstance().getCompleteFaceList();
-                    focusFollow(completeFaceList.get(0).getId());
-                    LogTools.info("mStartFollowFocus :" + completeFaceList.get(0).getId());
-
+                    if (completeFaceList != null) {
+                        focusFollow(completeFaceList.get(0).getId());
+                        LogTools.info("mStartFollowFocus :" + completeFaceList.get(0).getId());
+                    }
                 }
             }
         }

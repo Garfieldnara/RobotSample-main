@@ -19,14 +19,14 @@
         <Button
             android:id="@+id/start_navigation"
             style="@style/TextStyle"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:text="@string/navigation" />
 
         <Button
             android:id="@+id/stop_navigation"
             style="@style/TextStyle"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_marginLeft="8dp"
             android:text="@string/navigation_stop" />
@@ -52,15 +52,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/get_listposition"
+            style="@style/TextStyle"
+            android:layout_width="100dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/navigation_list_position" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/get_listposition"
-        style="@style/TextStyle"
-        android:layout_width="100dp"
-        android:layout_height="42dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="1dp"
-        android:text="@string/navigation_list_position" />
 
 </LinearLayout>

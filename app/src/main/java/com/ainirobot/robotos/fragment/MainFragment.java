@@ -35,6 +35,7 @@ public class MainFragment extends BaseFragment {
     private Button mLocation_scene;
     private Button mNavigation_scene;
     private Button mActivePerson_scene;
+    private Button mHome_scene;
 
     @Override
     public View onCreateView(Context context) {
@@ -54,6 +55,7 @@ public class MainFragment extends BaseFragment {
         mLocation_scene = (Button) root.findViewById(R.id.location_scene);
         mNavigation_scene = (Button) root.findViewById(R.id.navigation_scene);
         mActivePerson_scene = (Button) root.findViewById(R.id.activePerson_scen);
+        mHome_scene = (Button) root.findViewById(R.id.home_scene);
 
         mLead_scene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +111,13 @@ public class MainFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 switchFragment(ActivePersonFragment.newInstance());
+            }
+        });
+
+        mHome_scene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchFragment(HomeFragment.newInstance());
             }
         });
     }

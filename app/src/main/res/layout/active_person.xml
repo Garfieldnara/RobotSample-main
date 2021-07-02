@@ -3,73 +3,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:orientation="horizontal">
 
-        <Button
-            android:id="@+id/Get_List_People_Detected_Body"
+        <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Get_list_people_detected_body" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/Get_List_People_Detected_Complete_Faces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Get_list_people_detected_complete_faces" />
+            <Button
+                android:id="@+id/Person_Change_Monitoring"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/Person_change_monitoring" />
 
-        <Button
-            android:id="@+id/Get_List_People_Detected_Faces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Get_list_people_detected_faces" />
+            <Button
+                android:id="@+id/Get_All_Personnel_Information"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/Get_all_personnel_information" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/Get_Person_Following_Focus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Get_person_following_focus" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/Person_Change_Monitoring"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Person_change_monitoring" />
+            <Button
+                android:id="@+id/Get_Person_Following_Focus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Get_person_following_focus" />
 
-        <Button
-            android:id="@+id/Get_All_Personnel_Information"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Get_all_personnel_information" />
+            <Button
+                android:id="@+id/Get_List_People_Detected_Faces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Get_list_people_detected_faces" />
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/Get_List_People_Detected_Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Get_list_people_detected_body" />
+
+            <Button
+                android:id="@+id/Get_List_People_Detected_Complete_Faces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Get_list_people_detected_complete_faces" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/start_follow_focus"
-                android:layout_width="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start_follow_focus" />
 
             <Button
                 android:id="@+id/stop_follow_focus"
-                android:layout_width="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/stop_follow_focus" />
-        </LinearLayout>
-    </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

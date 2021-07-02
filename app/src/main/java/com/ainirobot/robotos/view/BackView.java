@@ -33,6 +33,7 @@ public class BackView extends LinearLayout {
 
     private Button mBack_btn;
     private Context mContext;
+
     public BackView(Context context) {
         super(context);
         init(context);
