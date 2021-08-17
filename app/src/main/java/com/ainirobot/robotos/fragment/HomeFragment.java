@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -22,15 +23,19 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ainirobot.robotos.MainActivity;
 import com.ainirobot.robotos.R;
 import com.ainirobot.robotos.databinding.FragmentHomeLayoutBinding;
 import com.ainirobot.robotos.view.BackView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
+import static com.ainirobot.base.AnalyticsApplicationWrapper.getApplicationContext;
 //import com.ainirobot.robotos.fragment.databinding.FragmentHomeLayoutBinding;
 
 /**
@@ -125,6 +130,13 @@ public class HomeFragment extends Fragment {
 
     private Button mBv_back;
 
+    private static final int SPEECH_REQUEST_CODE = 0;
+
+    ImageView speechButton;
+    FloatingActionButton btnMic;
+    TextView speechText;
+    FloatingActionButton btnSpeaker;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -132,14 +144,22 @@ public class HomeFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentHomeLayoutBinding.inflate(inflater, container, false);
+        t1 = new TextToSpeech(getActivity(),new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                t1.setLanguage(new Locale("th-TH"));
+            }
+        });
         bindView();
         return binding.getRoot();
     }
 
-    public void bindView(){
+    public void bindView() {
         mBv_back = binding.getRoot().findViewById(R.id.dummy_button);
         speechButton = binding.getRoot().findViewById(R.id.imageView);
         speechText = binding.getRoot().findViewById(R.id.editText);
+        btnMic = binding.getRoot().findViewById(R.id.btnMic);
+        btnSpeaker = binding.getRoot().findViewById(R.id.speaker);
 
         mBv_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,12 +175,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        btnMic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displaySpeechRecognizer();
+            }
+        });
+
+        btnSpeaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TTS1();
+            }
+        });
+
     }
 
-    private static final int SPEECH_REQUEST_CODE = 0;
+    TextToSpeech t1;
 
-    ImageView speechButton;
-    EditText speechText;
+    private void TTS1(){
+        String speakText = speechText.getText().toString();
+        t1.speak(speakText, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
 
     // Create an intent that can start the Speech Recognizer activity
     private void displaySpeechRecognizer() {
@@ -180,12 +218,13 @@ public class HomeFragment extends Fragment {
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 
-            for (int i = 0; i < results.size(); i++){
+            for (int i = 0; i < results.size(); i++) {
                 System.out.println(results.get(i));
             }
             // Do something with spokenText.
 
             speechText.setText(spokenText);
+            TTS1();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

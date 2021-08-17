@@ -29,30 +29,54 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnMic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:src="@drawable/ic_baseline_mic_24" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="145dp"
-                android:layout_height="133dp"
-                android:src="@android:drawable/presence_audio_online"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="133dp" />
+                android:layout_width="63dp"
+                android:layout_height="67dp"
+                android:src="@drawable/ic_baseline_mic_24" />
 
-            <EditText
+            <!--            <EditText-->
+            <!--                android:id="@+id/editText"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:ems="10"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:text="STT...." />-->
+
+            <TextView
                 android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:text="STT..." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/speaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="STT...."
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:layout_editor_absoluteX="100dp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/ic_baseline_speaker_24" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"

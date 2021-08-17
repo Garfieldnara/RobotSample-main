@@ -9,7 +9,7 @@
 
     <string name="start_lead_text">เริ่มนำทาง</string>
     <string name="stop_lead_text">หยุดนำทาง</string>
-    <string name="lead_text">นำทาง</string>
+    <string name="lead_text">นำทางจดจำบุคคล</string>
     <string name="map_location_text">แผนที่แสดงที่ตั้ง</string>
     <string name="charge_text">การชาร์จ</string>
     <string name="lead_hint_point">Lead Hint Point</string>
@@ -32,12 +32,12 @@
     <string name="vision_register">Vision Registered</string>
     <string name="vision_un_register">Vision Unregistered</string>
 
-    <string name="location_reception">Reception Location</string>
-    <string name="location_init_point">Init Point Location</string>
-    <string name="location_is_estimate">Estimate Location</string>
-    <string name="location_set_reception">Reception Location Set</string>
-    <string name="location_get_point">Get Location</string>
-    <string name="location_remove_point">ย้ายที่ตั้ง</string>
+    <string name="location_reception">หุ่นยนต์อยู่บนตำแหน่งหรือไม่</string>
+    <string name="location_init_point">กำหนดที่ตั้งจุดเริ่มต้น</string>
+    <string name="location_is_estimate">หุ่นยนต์อยู่บนตำแหน่งเริ่มต้นหรือไม่</string>
+    <string name="location_set_reception">ตั้งค่าตำแหน่ง</string>
+    <string name="location_get_point">รับตำแหน่งปัจจุบัน</string>
+    <string name="location_remove_point">ลบตำแหน่ง</string>
 
     <string name="navigation_stop"> หยุดการนำทาง</string>
     <string name="navigation_resume_direction">นำทางต่อ</string>
@@ -59,6 +59,9 @@
     <string name="home">Home</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cruise">ล่องเรือ</string>
 
 
 </resources>

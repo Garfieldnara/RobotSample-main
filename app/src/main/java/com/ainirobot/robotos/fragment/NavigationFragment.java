@@ -22,6 +22,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -43,10 +46,13 @@ public class NavigationFragment extends BaseFragment {
     private Button mStart_navigation;
     private EditText mNavigation_point;
     private Button mGetListPosition;
+    private TableLayout table;
+    private Context context;
 
     @Override
     public View onCreateView(Context context) {
         View root = mInflater.inflate(R.layout.fragment_navigation_layout, null, false);
+        this.context = context;
         initViews(root);
         return root;
     }
@@ -57,6 +63,10 @@ public class NavigationFragment extends BaseFragment {
         mStart_navigation = (Button) root.findViewById(R.id.start_navigation);
         mNavigation_point = (EditText)root.findViewById(R.id.et_navigation_point);
         mGetListPosition = (Button) root.findViewById(R.id.get_listposition);
+        table = (TableLayout) root.findViewById(R.id.tableforbutton);
+        btnPosition();
+
+
 
         mStart_navigation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,27 +98,139 @@ public class NavigationFragment extends BaseFragment {
 
     }
 
-    private void listPosition(){
+    private void btnPosition(){
         RobotApi.getInstance().getPlaceList(0, new CommandListener() {
             @Override
             public void onResult(int result, String message) {
+                Typetester t = new Typetester();
                 try {
-                    JSONArray jsonArray = new JSONArray(message);
-
-                    int length = jsonArray.length();
+                    final JSONArray jsonArray = new JSONArray(message);
+                    final int length = jsonArray.length();
+                    final String position[] = new String[length];
+//                    positionButton(length);
                     for (int i = 0; i < length; i++) {
                         JSONObject json = jsonArray.getJSONObject(i);
-                        json.getDouble("x"); //x coordinate
-                        json.getDouble("y"); //y coordinate
-                        json.getDouble("theta"); //z coordinate
-                        json.getString("name"); //position name
-                        LogTools.info("position " + i + " : " + json);
+                        position[i] = json.getString("name");
                     }
+                    System.out.println("json "+position);
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            System.out.println("run "+length);
+                            int j = 0;
+                            for (int row = 0; row < length/3.0; row++) {
+                                TableRow tableRow = new TableRow(context);
+                                tableRow.setLayoutParams(new TableLayout.LayoutParams(
+                                        TableLayout.LayoutParams.MATCH_PARENT,
+                                        TableLayout.LayoutParams.MATCH_PARENT,
+                                        1.0f
+                                ));
+                                table.addView(tableRow);
+                                for (int col = 0; col < 3; col++) {
+                                    Button button = new Button(context);
+                                    button.setLayoutParams(new TableRow.LayoutParams(
+                                            TableRow.LayoutParams.MATCH_PARENT,
+                                            TableRow.LayoutParams.MATCH_PARENT,
+                                            1.0f
+                                    ));
+                                    button.setText(position[j]);
+                                    final int finalJ = j;
+                                    button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Toast.makeText(context, "ฉันจะพาคุณไปที่" + position[finalJ],Toast.LENGTH_SHORT).show();
+                                            RobotApi.getInstance().startNavigation(0, position[finalJ], 1.5, 10 * 1000, mNavigationListener);
+
+                                        }
+                                    });
+                                    j++;
+                                    tableRow.addView(button);
+                                    if (j >= length){
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    });
+
                 } catch (JSONException | NullPointerException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    private void listPosition(){
+        RobotApi.getInstance().getPlaceList(0, new CommandListener() {
+            @Override
+            public void onResult(int result, String message) {
+                Typetester t = new Typetester();
+                try {
+                    JSONArray jsonArray = new JSONArray(message);
+                    int length = jsonArray.length();
+//                    positionButton(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject json = jsonArray.getJSONObject(i);
+
+                        json.getDouble("x"); //x coordinate
+                        json.getDouble("y"); //y coordinate
+                        json.getDouble("theta"); //z coordinate
+                        json.getString("name"); //position name
+                        LogTools.info("position " + i + " : " + json);
+
+                    }
+
+
+                } catch (JSONException | NullPointerException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void positionButton(final int length) {
+        final int num = length;
+        System.out.println("positionButton");
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("run"+num);
+                for (int row = 0; row < num/3.0; row++) {
+                    TableRow tableRow = new TableRow(context);
+                    System.out.println(table);
+                    table.addView(tableRow);
+                    for (int col = 0; col < 3; col++) {
+                        Button button = new Button(context);
+                        tableRow.addView(button);
+                    }
+                }
+            }
+        });
+    }
+
+    class Typetester {
+        void printType(byte x) {
+            System.out.println(x + " is an byte");
+        }
+        void printType(int x) {
+            System.out.println(x + " is an int");
+        }
+        void printType(float x) {
+            System.out.println(x + " is an float");
+        }
+        void printType(double x) {
+            System.out.println(x + " is an double");
+        }
+        void printType(char x) {
+            System.out.println(x + " is an char");
+        }
+        void printType(String x) {
+            System.out.println(x + " is an String");
+        }
+        void printType(Object x) {
+            System.out.println(x + " is an Object");
+        }
     }
 
     private String getNavigationPoint(){

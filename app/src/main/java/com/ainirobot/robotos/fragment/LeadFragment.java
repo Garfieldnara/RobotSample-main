@@ -111,6 +111,7 @@ public class LeadFragment extends BaseFragment {
                         break;
 
                     case Definition.ERROR_SET_TRACK_FAILED:
+                        break;
                     case Definition.ERROR_TARGET_NOT_FOUND:
                         LogTools.info("onError errorCode :" + errorCode + "(ไม่พบเป้าหมายหลัก )" + " result:" + errorString);
                         break;

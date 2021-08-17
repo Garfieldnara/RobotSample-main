@@ -44,13 +44,8 @@
             android:layout_width="100dp"
             android:layout_height="42dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
             android:text="@string/navigation_resume_direction" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
         <Button
             android:id="@+id/get_listposition"
@@ -61,5 +56,14 @@
             android:layout_marginTop="2dp"
             android:text="@string/navigation_list_position" />
     </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tableforbutton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:stretchColumns="*">
+
+    </TableLayout>
 
 </LinearLayout>

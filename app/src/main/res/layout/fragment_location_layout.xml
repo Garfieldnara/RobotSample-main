@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,29 +11,90 @@
         android:gravity="center"
         android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/list_is_in_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
         <Button
             android:id="@+id/is_in_location"
             style="@style/TextStyle"
             android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:text="@string/location_reception" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/newName_set_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="New position name"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/set_location"
             style="@style/TextStyle"
             android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:text="@string/location_init_point" />
+            android:text="@string/location_set_reception" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/list_remove_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/is_location"
+            android:id="@+id/remove_location"
             style="@style/TextStyle"
             android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="8dp"
-            android:layout_height="48dp"
-            android:text="@string/location_is_estimate" />
-
+            android:text="@string/location_remove_point" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,26 +105,28 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/set_reception_point"
+            android:id="@+id/set_location_start"
             style="@style/TextStyle"
             android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:text="@string/location_set_reception" />
+            android:layout_height="60dp"
+            android:text="@string/location_init_point" />
+
+        <Button
+            android:id="@+id/is_location"
+            style="@style/TextStyle"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:text="@string/location_is_estimate" />
 
         <Button
             android:id="@+id/get_location"
             style="@style/TextStyle"
             android:layout_width="100dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="8dp"
-            android:layout_height="48dp"
             android:text="@string/location_get_point" />
 
-        <Button
-            android:id="@+id/remove_location"
-            style="@style/TextStyle"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:text="@string/location_remove_point" />
     </LinearLayout>
+
 </LinearLayout>

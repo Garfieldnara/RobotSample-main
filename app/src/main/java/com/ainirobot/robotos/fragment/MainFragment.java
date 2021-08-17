@@ -19,6 +19,8 @@ package com.ainirobot.robotos.fragment;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import androidx.fragment.app.Fragment;
 
@@ -36,6 +38,7 @@ public class MainFragment extends BaseFragment {
     private Button mNavigation_scene;
     private Button mActivePerson_scene;
     private Button mHome_scene;
+    private Button mCruise_scene;
 
     @Override
     public View onCreateView(Context context) {
@@ -56,6 +59,8 @@ public class MainFragment extends BaseFragment {
         mNavigation_scene = (Button) root.findViewById(R.id.navigation_scene);
         mActivePerson_scene = (Button) root.findViewById(R.id.activePerson_scen);
         mHome_scene = (Button) root.findViewById(R.id.home_scene);
+        mCruise_scene = (Button) root.findViewById(R.id.cruise_scene);
+
 
         mLead_scene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +79,6 @@ public class MainFragment extends BaseFragment {
         mSport_scene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LogTools.info("spot move");
                 switchFragment(SportFragment.newInstance());
             }
         });
@@ -118,6 +122,12 @@ public class MainFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 switchFragment(HomeFragment.newInstance());
+            }
+        });
+        mCruise_scene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchFragment(CruiseFragment.newInstance());
             }
         });
     }
